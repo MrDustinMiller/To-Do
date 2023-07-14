@@ -1,0 +1,138 @@
+/* css reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+:root {
+ --font-color: rgba(10, 10, 7, 0.6);
+}
+
+li {
+  list-style-type: none;
+}
+
+.sidebar-left {
+  font-size: 0.8rem;
+  height: 100vh;
+  width:13vw;
+  background-color: #fbfbfa;
+  padding: 8px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-links {
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ADD ANIMATIONS FOR LINKS LATER */
+.link-item:hover {
+  cursor: pointer;
+  background-color:  rgba(10, 10, 7, 0.239);
+}
+
+.link-item {
+  display: flex;
+  border-radius: 5px;
+}
+
+.link-item > p {
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+.active {
+  color:rgb(0, 0, 0);
+  background-color:  rgba(10, 10, 7, 0.239);
+}
+
+.sidebar-top-container{
+  position: relative;
+  top: 3rem;
+  padding-bottom: 10rem;  
+}
+
+.sidebar-bottom-container{
+  position: relative; 
+}
+
+.sidebar-footer {
+  color: var(--font-color);
+  position: absolute;
+  bottom: 0;
+  width: 13vw;
+  height: 2.5rem;
+  left: 0;
+  border-top: 2px solid rgba(85, 83, 83, 0.68);
+  display: flex;
+  align-items: center;  
+  justify-content: space-around;
+}
+
+.sidebar-new:hover {
+  cursor: pointer;
+}
+
+.sidebar-settings:hover {
+  cursor: pointer;
+}
+
+.new-button-div {
+  display: flex;
+}
+
+.main-right {
+  width:100%;
+  background-color: #ffffff;
+}
+
+.no-task-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  gap: 5rem;
+  font-size: 2rem;
+  color: var(--font-color)
+}
+
+.main-new:hover {
+  cursor: pointer;
+}
+
+.main-new::before {
+  font-size: 5rem;
+}
