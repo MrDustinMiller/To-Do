@@ -5,7 +5,6 @@ function addActiveAttribute(e) {
 function checkForActiveAttribute(linkArray) {
   linkArray.forEach((element) => {
     if (element.parentElement.classList.contains('active')) {
-      console.log(element);
       element.parentElement.classList.remove('active');
     }
   });
