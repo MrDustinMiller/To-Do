@@ -1,4 +1,4 @@
-import loadTaskList from '../pages/taskListPage';
+import loadTaskList from '../pages/taskList';
 
 function createSidebar() {
   const contentContainer = document.querySelector('.content');
@@ -34,9 +34,9 @@ function createTopSidebarContent(sidebar) {
   const taskListLink = document.createElement('i');
   taskListLink.setAttribute('class', 'fa-solid fa-check');
   taskListLinkItem.appendChild(taskListLink);
+
   const taskListLinkText = document.createElement('p');
   taskListLinkText.classList.add('task-list');
-  // not sure about line below
   taskListLinkItem.classList.add('active');
   taskListLinkText.textContent = 'Task List';
   taskListLinkItem.appendChild(taskListLinkText);
@@ -111,23 +111,6 @@ function createMainContent() {
   body.appendChild(rightMainContent);
   // open page to home 'task-list'
   loadTaskList();
-}
-
-export function makeNewTaskDiv() {
-  const mainRightBody = document.querySelector('.main-right');
-
-  const noTaskDiv = document.createElement('div');
-  noTaskDiv.classList.add('no-task-container');
-  mainRightBody.appendChild(noTaskDiv);
-
-  const noTaskText = document.createElement('p');
-  noTaskText.textContent = 'You have no tasks yet, lets make some!';
-  noTaskDiv.appendChild(noTaskText);
-
-  const newTaskButton = document.createElement('i');
-  newTaskButton.setAttribute('class', 'main-new fa-regular fa-plus fa-2xl');
-  newTaskButton.setAttribute('title', 'New');
-  noTaskDiv.appendChild(newTaskButton);
 }
 
 export function wipeDomContent() {
