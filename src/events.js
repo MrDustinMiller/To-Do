@@ -2,7 +2,6 @@ import loadTaskList from './pages/taskList';
 import loadNotesPage from './pages/notes';
 import loadProjectPage from './pages/projects';
 import loadTodayPage from './pages/today';
-
 import { wipeDomContent } from './ui/dom';
 import {
   addActiveAttribute,

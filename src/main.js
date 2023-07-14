@@ -1,6 +1,8 @@
-import loadDom from './ui/dom';
+import loadSideBar from './ui/sidebar';
+import loadMainContent from './ui/mainContent';
 import events from './events';
 import './style.css';
 
-loadDom();
+loadSideBar();
+loadMainContent();
 events();
