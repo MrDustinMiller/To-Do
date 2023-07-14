@@ -60,22 +60,23 @@ li {
 /* ADD ANIMATIONS FOR LINKS LATER */
 .link-item:hover {
   cursor: pointer;
-  background-color:  rgba(10, 10, 7, 0.239);
+  background-color:  rgba(24, 24, 17, 0.088);
 }
 
 .link-item {
   display: flex;
+  align-items: center;
   border-radius: 5px;
 }
 
 .link-item > p {
   font-size: 1.1rem;
-  margin-left: 10px;
+  margin-left: 0.5rem;
 }
 
 .active {
   color:rgb(0, 0, 0);
-  background-color:  rgba(10, 10, 7, 0.239);
+  background-color:  rgba(24, 24, 17, 0.088);
 }
 
 .sidebar-top-container{
@@ -135,4 +136,10 @@ li {
 
 .main-new::before {
   font-size: 5rem;
+}
+
+.page-header {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
 }
