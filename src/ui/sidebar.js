@@ -1,5 +1,3 @@
-import loadTaskList from '../pages/taskList';
-
 function createSidebar() {
   const contentContainer = document.querySelector('.content');
   const sidebar = document.createElement('div');
