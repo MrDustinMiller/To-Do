@@ -1,4 +1,8 @@
-import loadTaskList from './pages/taskListPage';
+import loadTaskList from './pages/taskList';
+import loadNotesPage from './pages/notes';
+import loadProjectPage from './pages/projects';
+import loadTodayPage from './pages/today';
+
 import { wipeDomContent } from './ui/dom';
 import {
   addActiveAttribute,
@@ -16,6 +20,7 @@ export default function addEventListeners() {
     checkForActiveAttribute(linkArray);
     wipeDomContent();
     addActiveAttribute(e);
+    loadTodayPage();
   });
 
   taskListPage.addEventListener('click', (e) => {
@@ -29,11 +34,13 @@ export default function addEventListeners() {
     checkForActiveAttribute(linkArray);
     wipeDomContent();
     addActiveAttribute(e);
+    loadProjectPage();
   });
 
   notesPage.addEventListener('click', (e) => {
     checkForActiveAttribute(linkArray);
     wipeDomContent();
     addActiveAttribute(e);
+    loadNotesPage();
   });
 }
