@@ -1,11 +1,11 @@
 function addActiveAttribute(e) {
-  e.target.parentElement.classList.add('active');
+  e.target.classList.add('active');
 }
 
 function checkForActiveAttribute(linkArray) {
   linkArray.forEach((element) => {
-    if (element.parentElement.classList.contains('active')) {
-      element.parentElement.classList.remove('active');
+    if (element.classList.contains('active')) {
+      element.classList.remove('active');
     }
   });
 }
