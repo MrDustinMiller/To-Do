@@ -7,39 +7,48 @@ import {
   addActiveAttribute,
   checkForActiveAttribute,
 } from './ui/activeAttribute';
+import createNewDialogModal from './ui/modal/modal';
 
-export default function addEventListeners() {
-  const todayPage = document.querySelector('.today');
-  const taskListPage = document.querySelector('.task-list');
-  const projectsPage = document.querySelector('.projects');
-  const notesPage = document.querySelector('.notes');
-  const linkArray = [todayPage, taskListPage, projectsPage, notesPage];
+export default function addPageEventListeners() {
+  const sidebarLinks = document.querySelectorAll('.link-item');
 
-  todayPage.addEventListener('click', (e) => {
-    checkForActiveAttribute(linkArray);
-    wipeDomContent();
-    addActiveAttribute(e);
-    loadTodayPage();
+  sidebarLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      if (e.target.localName === 'li') {
+        checkForActiveAttribute(sidebarLinks);
+        wipeDomContent();
+        addActiveAttribute(e);
+        checkWhichSidebarLinkIsClicked(e, sidebarLinks);
+      }
+    });
   });
+}
 
-  taskListPage.addEventListener('click', (e) => {
-    checkForActiveAttribute(linkArray);
-    wipeDomContent();
-    addActiveAttribute(e);
-    loadTaskList();
-  });
+function checkWhichSidebarLinkIsClicked(e, sidebarLinks) {
+  switch (e.target.textContent) {
+    case 'Today':
+      loadTodayPage();
+      break;
+    case 'Task List':
+      loadTaskList();
+      break;
+    case 'Projects':
+      loadProjectPage();
+      break;
+    case 'Notes':
+      loadNotesPage();
+      break;
+    default:
+      break;
+  }
+}
 
-  projectsPage.addEventListener('click', (e) => {
-    checkForActiveAttribute(linkArray);
-    wipeDomContent();
-    addActiveAttribute(e);
-    loadProjectPage();
-  });
+export function dialogEvents() {
+  const newContentButtons = document.querySelectorAll('.new-content');
 
-  notesPage.addEventListener('click', (e) => {
-    checkForActiveAttribute(linkArray);
-    wipeDomContent();
-    addActiveAttribute(e);
-    loadNotesPage();
+  newContentButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      createNewDialogModal();
+    });
   });
 }
