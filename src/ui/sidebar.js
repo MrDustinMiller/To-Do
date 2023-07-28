@@ -35,6 +35,7 @@ function createTopSidebarContent(sidebar) {
 
   const taskListLinkText = document.createElement('p');
   taskListLinkText.classList.add('task-list');
+  // add active to task list because we want this page to show automatically
   taskListLinkItem.classList.add('active');
   taskListLinkText.textContent = 'Task List';
   taskListLinkItem.appendChild(taskListLinkText);
@@ -86,7 +87,7 @@ function createSidebarFooter(sidebar) {
   sidebarFooter.appendChild(newDiv);
   const newContentBtn = document.createElement('i');
   newContentBtn.setAttribute('title', 'New');
-  newContentBtn.setAttribute('class', 'sidebar-new fa-solid fa-plus');
+  newContentBtn.setAttribute('class', 'new-content fa-solid fa-plus');
   newDiv.appendChild(newContentBtn);
 
   const settingsDiv = document.createElement('div');
