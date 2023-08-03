@@ -1,12 +1,24 @@
 import modalEvents from './modal-events';
+import loadModalTaskPage from './modal-task-page';
 
 export default function createNewDialogModal() {
-  // break this into smaller functions
   const container = document.querySelector('.task-container');
   const newModal = document.createElement('dialog');
   newModal.classList.add('new-modal');
   container.appendChild(newModal);
 
+  createModalHeader(newModal);
+  createModalMainDiv(newModal);
+  createModalSidebar();
+  createModalContentDiv();
+
+  newModal.showModal();
+  // we want task page to be the first to automatically show in modal
+  loadModalTaskPage();
+  modalEvents(newModal, container);
+}
+
+function createModalHeader(newModal) {
   const header = document.createElement('header');
   header.classList.add('modal-header');
   header.textContent = 'Create a new...';
@@ -14,12 +26,18 @@ export default function createNewDialogModal() {
 
   const closeBtn = document.createElement('i');
   closeBtn.setAttribute('class', 'fa-solid fa-x');
+  closeBtn.classList.add('modal-close-btn');
   header.appendChild(closeBtn);
+}
 
+function createModalMainDiv(newModal) {
   const mainDiv = document.createElement('div');
   mainDiv.classList.add('modal-main-div');
   newModal.appendChild(mainDiv);
+}
 
+function createModalSidebar() {
+  const mainDiv = document.querySelector('.modal-main-div');
   const sidebar = document.createElement('div');
   sidebar.classList.add('modal-sidebar');
 
@@ -40,7 +58,10 @@ export default function createNewDialogModal() {
   sidebarLinkNotes.textContent = 'Note';
   sidebar.appendChild(sidebarLinkNotes);
   mainDiv.appendChild(sidebar);
+}
 
+function createModalContentDiv() {
+  const mainDiv = document.querySelector('.modal-main-div');
   const newContentDiv = document.createElement('div');
   newContentDiv.classList.add('modal-new-content-div');
   mainDiv.appendChild(newContentDiv);
@@ -48,30 +69,4 @@ export default function createNewDialogModal() {
   const newEntryDiv = document.createElement('div');
   newEntryDiv.classList.add('modal-new-entry');
   newContentDiv.appendChild(newEntryDiv);
-
-  // here will be seperated into own modules for each link
-  //
-  const titleTextArea = document.createElement('textarea');
-  titleTextArea.classList.add('modal-task-title-area');
-  titleTextArea.textContent = 'Title: Pay Bills';
-  newEntryDiv.appendChild(titleTextArea);
-
-  const taskDescriptionTextArea = document.createElement('textarea');
-  taskDescriptionTextArea.classList.add('modal-task-title-area');
-  taskDescriptionTextArea.textContent = 'Details: phone bill';
-  newEntryDiv.appendChild(taskDescriptionTextArea);
-
-  const dateDiv = document.createElement('div');
-  dateDiv.classList.add('modal-date-div');
-  dateDiv.textContent = 'date inpute here';
-  newContentDiv.appendChild(dateDiv);
-
-  const priorityDiv = document.createElement('div');
-  priorityDiv.classList.add('modal-priority-div');
-  priorityDiv.textContent = 'priority and add task button here';
-  newContentDiv.appendChild(priorityDiv);
-  //
-
-  newModal.showModal();
-  modalEvents();
 }
