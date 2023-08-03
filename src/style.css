@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  font-family:sans-serif;
 }
 
 /* dark mode user-agent-styles */
@@ -34,6 +35,13 @@ video {
 
 :root {
  --font-color: rgba(10, 10, 7, 0.6);
+ --text-hover-color: rgba(24, 24, 17, 0.088);
+ --main-background-color:  #ffffff;
+ --priority-low-color: green;
+ --priority-high-color: red;
+ --priority-med-color: rgb(236, 176, 11);;
+ --add-tasks-button-color: #5cb2a7;
+
 }
 
 li {
@@ -60,7 +68,7 @@ li {
 /* ADD ANIMATIONS FOR LINKS LATER */
 .link-item:hover {
   cursor: pointer;
-  background-color:  rgba(24, 24, 17, 0.088);
+  background-color:  var(--text-hover-color);
 }
 
 .link-item {
@@ -69,14 +77,15 @@ li {
   border-radius: 5px;
 }
 
-.link-item > p {
+.link-item > a {
   font-size: 1.1rem;
   margin-left: 0.5rem;
 }
 
-.active {
+[class|='link-item active'] {
   color:rgb(0, 0, 0);
-  background-color:  rgba(24, 24, 17, 0.088);
+  font-weight: bold;
+  background-color:  var(--text-hover-color);
 }
 
 .sidebar-top-container{
@@ -87,6 +96,10 @@ li {
 
 .sidebar-bottom-container{
   position: relative; 
+}
+
+a {
+  pointer-events: none;
 }
 
 .sidebar-footer {
@@ -102,11 +115,8 @@ li {
   justify-content: space-around;
 }
 
-.sidebar-new:hover {
-  cursor: pointer;
-}
-
-.sidebar-settings:hover {
+.sidebar-new:hover, .sidebar-settings:hover, .new-content:hover, .modal-link:hover, .fa-x:hover, 
+.modal-date-input:hover, .modal-btn:hover {
   cursor: pointer;
 }
 
@@ -116,7 +126,7 @@ li {
 
 .main-right {
   width:100%;
-  background-color: #ffffff;
+  background-color: var(--main-background-color)
 }
 
 .task-container {
@@ -130,16 +140,8 @@ li {
   color: var(--font-color)
 }
 
-/* .task-page-new, .main-new:hover {
-  cursor: pointer;
-} */
-
 .main-new::before {
   font-size: 5rem;
-}
-
-.new-content:hover {
-  cursor: pointer;
 }
 
 .page-header {
@@ -167,20 +169,45 @@ li {
 
 dialog {
   margin: auto;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  color: var(--font-color)
 }
 
-.modal-link:hover{
-  cursor: pointer;
+.modal-new-content-div {
+  text-indent: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-task-title-area, .modal-notes-text-area, .modal-project-text-area{
+  text-indent: 10px;
+}
+
+.modal-link {
+  margin-top: .5em;
+}
+
+[class|='modal-link active'] {
+  color: rgb(0, 0, 0);
+}
+
+[class|='modal-link active']::before {
+  content: '//';
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-right: .25em;
+
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   background-color: #c38d9e;
-}
-
-.fa-x:hover {
-  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
 }
 
 .modal-new-entry {
@@ -190,6 +217,115 @@ dialog {
 
 .modal-sidebar {
   width: 10dvw;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   background-color: #fbfbfa;
+  min-height: 35dvh;
+}
+
+.modal-date-input {
+  border-radius: 8px;
+  border: 1.5px solid var(--add-tasks-button-color);
+  padding: 0.125em 0.25em 0.125em 0.25em;
+  font-size: 1.25rem;
+  color:var(--add-tasks-button-color)
+}
+
+.modal-date-div {  
+  margin-bottom: .5em;
+}
+
+.modal-priority-div {
+  display: flex;
+}
+
+.priority-btn-div {
+  gap: 1rem;
+  display: flex;
+  margin-left: .5em;
+  width: 60%;
+}
+
+.modal-add-note-btn, .modal-add-project-btn {
+  margin-left: 10px;
+  width: 52%;
+}
+
+.modal-add-task-btn, .modal-add-note-btn, .modal-add-project-btn {
+  color:var(--add-tasks-button-color);
+  border: 1.5px solid var(--add-tasks-button-color);
+}
+
+.modal-add-note-btn:hover, .modal-add-project-btn:hover, .modal-add-task-btn:hover {
+  background-color:var(--add-tasks-button-color);
+  color:white;
+  transition: all 0.25s;
+}
+
+.modal-btn {
+  background-color: var(--main-background-color);
+  border-radius: 5px;
+  padding: 0.125em 0.25em 0.125em 0.25em;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.priority-low-btn {
+  border: 1.5px solid var(--priority-low-color);
+  color: var(--priority-low-color);
+}
+
+.priority-low-btn:hover  {
+ background-color: var(--priority-low-color);
+ color:var(--main-background-color);
+ transition: all 0.25s;
+}
+
+.priority-med-btn {
+  border: 1.5px solid var(--priority-med-color);
+  color: var(--priority-med-color)
+}
+
+.priority-med-btn:hover  {
+  background-color: var(--priority-med-color);
+  color:var(--main-background-color);
+  transition: all 0.25s;
+ }
+ 
+
+.priority-high-btn {
+  border: 1.5px solid var(--priority-high-color);
+  color: var(--priority-high-color);
+}
+
+.priority-high-btn:hover  {
+  background-color: var(--priority-high-color);
+  color:var(--main-background-color);
+  transition: all 0.25s;
+ }
+
+textarea {
+  resize: none;
+  font-size: 1.25rem;
+  min-width: 29dvw;
+  border: none;
+  overflow: auto;
+  outline: none;
+  padding-top: 0.5rem;
+}
+
+.modal-task-title-area:nth-child(1) {
+  border-bottom: 1px solid black;
+  min-height: 6dvh;
+}
+
+.modal-task-title-area:nth-child(2) {
+  min-height: 12dvh;
+  margin-bottom: 1rem;
+}
+
+.modal-notes-text-area, .modal-project-text-area {
+  min-height: 18dvh;
 }
