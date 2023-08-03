@@ -5,6 +5,7 @@ export default function createMainContent() {
   const rightMainContent = document.createElement('div');
   rightMainContent.classList.add('main-right');
   body.appendChild(rightMainContent);
-  // open page to home 'task-list'
+
+  // on page load open to 'task-list'
   loadTaskList();
 }
