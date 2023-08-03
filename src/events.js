@@ -14,17 +14,15 @@ export default function addPageEventListeners() {
 
   sidebarLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
-      if (e.target.localName === 'li') {
-        checkForActiveAttribute(sidebarLinks);
-        wipeDomContent();
-        addActiveAttribute(e);
-        checkWhichSidebarLinkIsClicked(e, sidebarLinks);
-      }
+      checkForActiveAttribute(sidebarLinks);
+      wipeDomContent();
+      addActiveAttribute(e);
+      checkWhichSidebarLinkIsClicked(e);
     });
   });
 }
 
-function checkWhichSidebarLinkIsClicked(e, sidebarLinks) {
+function checkWhichSidebarLinkIsClicked(e) {
   switch (e.target.textContent) {
     case 'Today':
       loadTodayPage();
