@@ -19,9 +19,9 @@ function createTopSidebarContent(sidebar) {
   todayLinkItem.classList.add('link-item');
   sidebarLinks.appendChild(todayLinkItem);
   const todayLink = document.createElement('i');
-  todayLink.setAttribute('class', 'fa-solid fa-sun');
+  todayLink.setAttribute('class', 'sidebar-link fa-solid fa-sun');
   todayLinkItem.appendChild(todayLink);
-  const todayLinkText = document.createElement('p');
+  const todayLinkText = document.createElement('a');
   todayLinkText.classList.add('today');
   todayLinkText.textContent = 'Today';
   todayLinkItem.appendChild(todayLinkText);
@@ -33,7 +33,7 @@ function createTopSidebarContent(sidebar) {
   taskListLink.setAttribute('class', 'fa-solid fa-check');
   taskListLinkItem.appendChild(taskListLink);
 
-  const taskListLinkText = document.createElement('p');
+  const taskListLinkText = document.createElement('a');
   taskListLinkText.classList.add('task-list');
   // add active to task list because we want this page to show automatically
   taskListLinkItem.classList.add('active');
@@ -58,7 +58,7 @@ function createBottomSidebarContent(sidebar) {
   const projectLink = document.createElement('i');
   projectLink.setAttribute('class', 'fa-solid fa-file');
   projectLinkItem.appendChild(projectLink);
-  const projectLinkText = document.createElement('p');
+  const projectLinkText = document.createElement('a');
   projectLinkText.classList.add('projects');
   projectLinkText.textContent = 'Projects';
   projectLinkItem.appendChild(projectLinkText);
@@ -69,7 +69,7 @@ function createBottomSidebarContent(sidebar) {
   const notesLink = document.createElement('i');
   notesLink.setAttribute('class', 'fa-solid fa-book');
   notesLinkItem.appendChild(notesLink);
-  const notesLinkText = document.createElement('p');
+  const notesLinkText = document.createElement('a');
   notesLinkText.classList.add('notes');
   notesLinkText.textContent = 'Notes';
   notesLinkItem.appendChild(notesLinkText);
