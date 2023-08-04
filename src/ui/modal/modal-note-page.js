@@ -1,10 +1,13 @@
 import { wipeModalContent } from '../dom';
 import buildModalDueDateDiv from './due-date';
 import buildModalTextArea from './text-area';
+import buildModalAddTaskButton from './modal-add-button';
 
 export default function loadModalNotesPage() {
-  const modalMainContent = document.querySelector('.modal-new-content-div');
+  // if it exists then dont build the page because its open already, just return
+  if (document.querySelector('.modal-notes-text-area')) return;
 
+  const modalMainContent = document.querySelector('.modal-new-content-div');
   wipeModalContent(modalMainContent);
   buildModalTextArea(
     'modal-notes-text-area',
@@ -12,10 +15,5 @@ export default function loadModalNotesPage() {
     modalMainContent
   );
   buildModalDueDateDiv(modalMainContent);
-
-  const addNewNoteBtnOnNoteModalPage = document.createElement('button');
-  addNewNoteBtnOnNoteModalPage.classList.add('modal-add-note-btn');
-  addNewNoteBtnOnNoteModalPage.classList.add('modal-btn');
-  addNewNoteBtnOnNoteModalPage.textContent = 'Add Note';
-  modalMainContent.appendChild(addNewNoteBtnOnNoteModalPage);
+  buildModalAddTaskButton(modalMainContent, 'modal-add-note-btn', 'Add Note');
 }
