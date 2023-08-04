@@ -1,5 +1,5 @@
-import { changeNoTaskContainer, createNewDialogModal } from '../ui/dom';
+// import { changeNoTaskContainer, createNewDialogModal } from '../ui/dom';
 
-export default function addNewTask() {
-  createNewDialogModal();
-}
+// export default function addNewTask() {
+//   createNewDialogModal();
+// }
