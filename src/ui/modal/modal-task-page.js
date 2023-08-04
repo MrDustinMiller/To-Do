@@ -3,8 +3,10 @@ import buildModalDueDateDiv from './due-date';
 import buildModalTextArea from './text-area';
 
 export default function loadModalTaskPage() {
-  const newContentDiv = document.querySelector('.modal-new-content-div');
+  // if it exists then dont build the page because its open already, just return
+  if (document.querySelector('.modal-task-title-area')) return;
 
+  const newContentDiv = document.querySelector('.modal-new-content-div');
   wipeModalContent(newContentDiv);
   buildModalTextArea(
     'modal-task-title-area',
