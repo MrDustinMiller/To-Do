@@ -4,7 +4,7 @@ import { dialogEvents } from '../events';
 
 export default function loadTodayPage() {
   createHeader();
-  //load tasks from Local storage
+  //load all projects/tasks from Local storage on click
   //else
   makeNewTaskDiv('items saved');
   dialogEvents();
