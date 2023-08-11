@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
-  font-family:sans-serif;
+  font-family: var(--font-style)
 }
 
 /* dark mode user-agent-styles */
@@ -41,7 +41,8 @@ video {
  --priority-high-color: red;
  --priority-med-color: rgb(236, 176, 11);;
  --add-tasks-button-color: #5cb2a7;
-
+ --font-style: sans-serif;
+ --secondary-background-color: #efefef;
 }
 
 li {
@@ -52,7 +53,7 @@ li {
   font-size: 0.8rem;
   height: 100vh;
   width:13vw;
-  background-color: #fbfbfa;
+  background-color:var(--secondary-background-color);
   padding: 8px; 
   display: flex;
   flex-direction: column;
@@ -66,7 +67,7 @@ li {
 }
 
 /* ADD ANIMATIONS FOR LINKS LATER */
-.link-item:hover {
+.link-item:hover, .add-project-btn:hover {
   cursor: pointer;
   background-color:  var(--text-hover-color);
 }
@@ -75,6 +76,24 @@ li {
   display: flex;
   align-items: center;
   border-radius: 5px;
+}
+
+.sidebar-project-link {
+  font-size: 1.1rem; 
+}
+
+.fa-file {
+  margin-right: 0.5em
+}
+
+.add-project-btn {
+  font-weight: 500;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+} 
+
+.add-new-project {
+  margin-left: 0.5em;
 }
 
 .link-item > a {
@@ -180,10 +199,12 @@ dialog {
   flex-direction: column;
 }
 
-.modal-task-title-area, .modal-notes-text-area, .modal-project-text-area{
+.modal-task-title-area, .modal-task-details-area, .modal-notes-details-area, .modal-notes-text-area, .modal-project-text-area{
   text-indent: 10px;
 }
-
+.modal-notes-details-area {
+  min-height: 14dvh;
+}
 .modal-link {
   margin-top: .5em;
 }
@@ -264,7 +285,7 @@ dialog {
   transition: all 0.25s;
 }
 
-.modal-btn {
+.modal-btn, .modal-add-btn {
   background-color: var(--main-background-color);
   border-radius: 5px;
   padding: 0.125em 0.25em 0.125em 0.25em;
@@ -293,7 +314,6 @@ dialog {
   color:var(--main-background-color);
   transition: all 0.25s;
  }
- 
 
 .priority-high-btn {
   border: 1.5px solid var(--priority-high-color);
@@ -316,16 +336,64 @@ textarea {
   padding-top: 0.5rem;
 }
 
-.modal-task-title-area:nth-child(1) {
+.modal-task-title-area{
   border-bottom: 1px solid black;
   min-height: 6dvh;
 }
 
-.modal-task-title-area:nth-child(2) {
+.modal-task-details-area {
   min-height: 12dvh;
   margin-bottom: 1rem;
 }
 
-.modal-notes-text-area, .modal-project-text-area {
+.modal-project-text-area {
   min-height: 18dvh;
+}
+
+.to-do-div {
+  display:flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 3rem;
+}
+
+.to-do-div-left, .to-do-div-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.notes-container {
+  display: flex;
+}
+
+.note-div {
+  margin: 1rem;
+  font-family: var(--font-style);
+  color: var(--font-color);
+  background-color:var(--secondary-background-color);
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: 20dvh;
+  min-height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem
+}
+
+.note-date {
+  align-self: flex-end
+}
+
+.note-text-content {
+  align-self: start;
+  padding: 0.5rem
 }
