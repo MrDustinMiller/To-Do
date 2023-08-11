@@ -1,3 +1,5 @@
+import { addExistingProjectsToSidebar } from '../pages/projects';
+
 function createSidebar() {
   const contentContainer = document.querySelector('.content');
   const sidebar = document.createElement('div');
@@ -53,7 +55,7 @@ function createBottomSidebarContent(sidebar) {
   bottomContainer.appendChild(sidebarLinks);
 
   const projectLinkItem = document.createElement('li');
-  projectLinkItem.classList.add('link-item');
+  projectLinkItem.classList.add('sidebar-project-link');
   sidebarLinks.appendChild(projectLinkItem);
   const projectLink = document.createElement('i');
   projectLink.setAttribute('class', 'fa-solid fa-file');
@@ -62,6 +64,18 @@ function createBottomSidebarContent(sidebar) {
   projectLinkText.classList.add('projects');
   projectLinkText.textContent = 'Projects';
   projectLinkItem.appendChild(projectLinkText);
+
+  const addNewProjectLinkItem = document.createElement('i');
+  addNewProjectLinkItem.setAttribute('class', 'fa-solid fa-plus');
+  addNewProjectLinkItem.classList.add('add-project-btn');
+  addNewProjectLinkItem.textContent;
+  projectLinkItem.appendChild(addNewProjectLinkItem);
+  const addNewprojectLinkText = document.createElement('a');
+  addNewprojectLinkText.classList.add('add-new-project');
+  addNewprojectLinkText.textContent = 'Add project';
+  addNewProjectLinkItem.appendChild(addNewprojectLinkText);
+  // if any
+  addExistingProjectsToSidebar();
 
   const notesLinkItem = document.createElement('li');
   notesLinkItem.classList.add('link-item');
