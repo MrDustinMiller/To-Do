@@ -2,7 +2,11 @@ import modalEvents from './modal-events';
 import loadModalTaskPage from './modal-task-page';
 
 export default function createNewDialogModal() {
-  const container = document.querySelector('.task-container');
+  if (document.querySelector('.new-modal')) return;
+  const container =
+    document.querySelector('.task-container') ||
+    document.querySelector('.to-do-container') ||
+    document.querySelector('.notes-container');
   const newModal = document.createElement('dialog');
   newModal.classList.add('new-modal');
   container.appendChild(newModal);
@@ -13,8 +17,11 @@ export default function createNewDialogModal() {
   createModalContentDiv();
 
   newModal.showModal();
+
   // we want task page to be the first to automatically show in modal
   loadModalTaskPage();
+
+  // load modal events so user can change tabs/etc
   modalEvents(newModal, container);
 }
 
