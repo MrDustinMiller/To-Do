@@ -5,10 +5,12 @@ import {
 import loadModalTaskPage from './modal-task-page';
 import loadModalProjectPage from './modal-project-page';
 import loadModalNotesPage from './modal-note-page';
+import removeModal from './removeModal';
 
-export default function modalEvents(newModal, container) {
+export default function modalEvents() {
   const modalSidebarLinks = document.querySelectorAll('.modal-link');
   const modalCloseBtn = document.querySelector('.modal-close-btn');
+  const newModal = document.querySelector('.new-modal');
 
   modalSidebarLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -19,11 +21,11 @@ export default function modalEvents(newModal, container) {
   });
 
   newModal.addEventListener('close', () => {
-    container.removeChild(newModal);
+    removeModal();
   });
 
   modalCloseBtn.addEventListener('click', () => {
-    container.removeChild(newModal);
+    removeModal();
   });
 }
 
