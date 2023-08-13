@@ -11,7 +11,7 @@ export default function loadTaskList() {
 
   // if false we have no existing to-do's so make a task container so user can make some new tasks
   if (!toDo) {
-    makeNewTaskDiv('tasks');
+    makeNewTaskDiv('tasks', 'task-container');
     dialogEvents();
   } else {
     addExistingToDoToPage('todo');
