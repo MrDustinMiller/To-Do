@@ -10,7 +10,7 @@ export default function loadNotesPage() {
 
   // if false we have no existing notes so make a task container so user can make some new notes
   if (!notes) {
-    makeNewTaskDiv('notes');
+    makeNewTaskDiv('notes', 'task-container');
     dialogEvents();
   } else {
     addExistingNotesToPage('notes');
