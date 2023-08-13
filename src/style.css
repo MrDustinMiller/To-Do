@@ -72,7 +72,7 @@ li {
   background-color:  var(--text-hover-color);
 }
 
-.link-item {
+.link-item:not(.project-child) {
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -90,6 +90,7 @@ li {
   font-weight: 500;
   margin-left: 0.5em;
   margin-top: 0.5em;
+  display: flex;
 } 
 
 .add-new-project {
@@ -106,6 +107,12 @@ li {
   font-weight: bold;
   background-color:  var(--text-hover-color);
 }
+
+ button[class~='active'] {
+  color:rgb(0, 0, 0);
+  font-weight: bold;
+  background-color:  var(--text-hover-color);
+} 
 
 .sidebar-top-container{
   position: relative;
@@ -148,7 +155,7 @@ a {
   background-color: var(--main-background-color)
 }
 
-.task-container {
+.task-container, .project-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -396,4 +403,15 @@ textarea {
 .note-text-content {
   align-self: start;
   padding: 0.5rem
+}
+
+.project-child {
+  border: none;
+  background-color: var(--secondary-background-color);
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  gap: 0.5rem;
+  margin-left: 2.5em;
+  overflow: clip;
 }
