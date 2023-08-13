@@ -1,7 +1,7 @@
-export default function makeNewTaskDiv(choice) {
+export default function makeNewTaskDiv(choice, containerClassName) {
   const mainRightBody = document.querySelector('.main-right');
   const noTaskDiv = document.createElement('div');
-  noTaskDiv.classList.add('task-container');
+  noTaskDiv.classList.add(containerClassName);
   mainRightBody.appendChild(noTaskDiv);
 
   createNoTaskContainerText(noTaskDiv, choice);
