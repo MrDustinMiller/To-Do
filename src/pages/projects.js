@@ -1,18 +1,15 @@
 import createHeader from '../ui/header';
-// import makeNewTaskDiv from '../ui/noTasksMessage';
-// import { dialogEvents } from '../events';
+import makeNewTaskDivForProjects from '../ui/noTasksMessage';
+import { dialogEvents } from '../events';
 import { getFromLocalStorage } from '../localStorage';
 import addNewProjectToSidebar from '../ui/addNewProjectToSidebar';
 
-// export default function loadProjectPage() {
-//   // createHeader();
-//   // // if false we have no existing projects so make a task container so user can add new projects
-//   // const projects = localStorage.getItem('project');
-//   // if (!projects) {
-//   //   makeNewTaskDiv('projects');
-//   //   dialogEvents();
-//   // }
-// }
+//runs when a individual project is clicked
+export default function loadProjectPage() {
+  createHeader();
+  makeNewTaskDivForProjects('tasks', 'project-container');
+  dialogEvents();
+}
 
 // function is ran on page load
 export function addExistingProjectsToSidebar() {
