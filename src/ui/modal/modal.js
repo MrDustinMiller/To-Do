@@ -6,7 +6,8 @@ export default function createNewDialogModal() {
   const container =
     document.querySelector('.task-container') ||
     document.querySelector('.to-do-container') ||
-    document.querySelector('.notes-container');
+    document.querySelector('.notes-container') ||
+    document.querySelector('.project-container');
   const newModal = document.createElement('dialog');
   newModal.classList.add('new-modal');
   container.appendChild(newModal);
