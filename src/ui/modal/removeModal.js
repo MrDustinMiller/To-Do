@@ -3,7 +3,8 @@ export default function removeModal() {
   const container =
     document.querySelector('.task-container') ||
     document.querySelector('.to-do-container') ||
-    document.querySelector('.notes-container');
+    document.querySelector('.notes-container') ||
+    document.querySelector('.project-container');
 
   container.removeChild(newModal);
 }
