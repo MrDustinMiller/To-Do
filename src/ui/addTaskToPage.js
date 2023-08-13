@@ -90,3 +90,5 @@ function addNotesToPage(task) {
   noteDate.textContent = `${task.taskDate}`;
   noteDiv.appendChild(noteDate);
 }
+
+export { addTaskContainer };
