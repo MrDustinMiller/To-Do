@@ -6,6 +6,6 @@ export default function loadTodayPage() {
   createHeader();
   //load all projects/tasks from Local storage on click
   //else
-  makeNewTaskDiv('items saved');
+  makeNewTaskDiv('items saved', 'task-container');
   dialogEvents();
 }
