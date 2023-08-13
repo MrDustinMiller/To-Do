@@ -10,8 +10,9 @@ import {
 import createNewDialogModal from './ui/modal/modal';
 
 export default function addPageEventListeners() {
+  // events for sidebarlink + individual project pages
   const sidebarLinks = document.querySelectorAll('.link-item');
-  const projectsLink = document.querySelector('.add-project-btn');
+  const addNewProjectsBtn = document.querySelector('.add-project-btn');
 
   sidebarLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -22,7 +23,7 @@ export default function addPageEventListeners() {
     });
   });
 
-  projectsLink.addEventListener('click', () => {
+  addNewProjectsBtn.addEventListener('click', () => {
     // open modal when user clicks on add project
     createNewDialogModal();
   });
@@ -36,15 +37,12 @@ function checkWhichSidebarLinkIsClicked(e) {
     case 'Task List':
       loadTaskList();
       break;
-    // case 'Add Project':
-    //   loadProjectPage();
-    //   dialogEvents();
-    //   //  load header and modal
-    //   break;
     case 'Notes':
       loadNotesPage();
       break;
+    // our default will be individual projects that are clicked if not any of the abvoe
     default:
+      loadProjectPage();
       break;
   }
 }
