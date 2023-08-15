@@ -7,13 +7,22 @@ export default function modalTaskPageEvents() {
   const priorityButtons = document.querySelectorAll('.modal-btn');
   const main = document.querySelector('.main-right');
   const noTaskContainer = document.querySelector('.task-container');
+  const pageHeader = document.querySelector('.page-header');
 
   modalAddButton.addEventListener('click', () => {
-    // capture todo object in task variable
-    const task = captureModalTaskPageData();
-    addToDo('toDo', task);
-    removeModal();
-    main.removeChild(noTaskContainer);
+    // check if task should be attached to a project or not
+    if (pageHeader.nextSibling.className === 'project-container') {
+      // capture todo object in task variable
+      const task = captureModalTaskPageData();
+      addToDo('project-task', task, pageHeader.textContent);
+      removeModal();
+    } else {
+      // capture todo object in task variable
+      const task = captureModalTaskPageData();
+      addToDo('toDo', task);
+      removeModal();
+      main.removeChild(noTaskContainer);
+    }
   });
 
   priorityButtons.forEach((button) => {
