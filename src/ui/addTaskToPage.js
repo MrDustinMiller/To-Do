@@ -1,15 +1,23 @@
-export default function addTaskToPage(type, task) {
-  if (type !== 'notes') {
+export default function addTaskToPage(type, task, containerName) {
+  // refactor all this later
+  console.log(type);
+  if (type === 'toDo') {
+    console.log('hmm');
     // type would equal 'toDo'
     addToDoToPage(task);
-  } else {
+  } else if (type === 'project-task') {
+    addToDoToPage(task, containerName);
+  }
+
+  if (type === 'notes') {
     addNotesToPage(task);
   }
 }
 
-function addToDoToPage(task) {
-  addTaskContainer('to-do-container');
-  const toDoContainer = document.querySelector('.to-do-container');
+function buildToDoUi(task) {
+  const toDoContainer =
+    document.querySelector('.to-do-container') ||
+    document.querySelector('.project-container');
 
   const toDoDiv = document.createElement('div');
   toDoDiv.classList.add('to-do-div');
@@ -47,6 +55,17 @@ function addToDoToPage(task) {
   toDoPriorityLevel.classList.add('to-do-priority-level');
   toDoPriorityLevel.textContent = `${task.priorityLevel}`;
   toDoDivRight.appendChild(toDoPriorityLevel);
+}
+
+function addToDoToPage(task, containerName) {
+  if (containerName === 'project-container') {
+    addTaskContainer('project-container');
+    buildToDoUi(task);
+  } else {
+    console.log('running?');
+    addTaskContainer('to-do-container');
+    buildToDoUi(task);
+  }
 }
 
 function addTaskContainer(className) {
@@ -91,4 +110,4 @@ function addNotesToPage(task) {
   noteDiv.appendChild(noteDate);
 }
 
-export { addTaskContainer };
+export { addTaskContainer, buildToDoUi };
