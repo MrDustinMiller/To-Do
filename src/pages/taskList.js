@@ -14,7 +14,7 @@ export default function loadTaskList() {
     makeNewTaskDiv('tasks', 'task-container');
     dialogEvents();
   } else {
-    addExistingToDoToPage('todo');
+    addExistingToDoToPage('toDo');
     dialogEvents();
   }
 }
