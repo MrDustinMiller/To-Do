@@ -42,7 +42,7 @@ function checkWhichSidebarLinkIsClicked(e) {
       break;
     // our default will be individual projects that are clicked if not any of the abvoe
     default:
-      loadProjectPage();
+      loadProjectPage(e);
       break;
   }
 }
