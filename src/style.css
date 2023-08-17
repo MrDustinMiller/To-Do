@@ -142,7 +142,7 @@ a {
 }
 
 .sidebar-new:hover, .sidebar-settings:hover, .new-content:hover, .modal-link:hover, .fa-x:hover, 
-.modal-date-input:hover, .modal-btn:hover {
+.modal-date-input:hover, .modal-btn:hover, .fa-trash {
   cursor: pointer;
 }
 
