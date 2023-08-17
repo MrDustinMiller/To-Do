@@ -2,6 +2,7 @@ import { captureModalProjectPageData } from '../../tasks/captureTaskData';
 import addToDo from '../../tasks/addTasks';
 import addNewProjectToSidebar from '../addNewProjectToSidebar';
 import removeModal from './removeModal';
+import addPageEventListeners from '../../events';
 
 export default function modalTaskProjectEvents() {
   const modalAddButton = document.querySelector('.modal-add-btn');
@@ -14,7 +15,7 @@ export default function modalTaskProjectEvents() {
     // destructure and rename to project title so we can add to sidebar through function call
     const { taskTitle: projectTitle } = task;
     addNewProjectToSidebar(projectTitle);
-
+    addPageEventListeners();
     removeModal();
   });
 }
