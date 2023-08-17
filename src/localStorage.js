@@ -1,3 +1,5 @@
+import makeNewTaskDiv from './ui/noTasksMessage';
+
 function setToLocalStorage(type, task, pageHeaderText) {
   const data = localStorage.getItem(`${type}`);
 
@@ -16,13 +18,11 @@ function setToLocalStorage(type, task, pageHeaderText) {
       localStorage.setItem(`${type}`, JSON.stringify(dataArray));
     }
   } else {
-    console.log(pageHeaderText);
     task.projectPage = pageHeaderText;
 
     // populate array with existing tasks of 'type'
     const dataArray = JSON.parse(localStorage.getItem(`${type}`));
 
-    // push our new task onto end of array
     dataArray.push(task);
 
     // set new array with all tasks old and new to local storage
@@ -34,4 +34,27 @@ function getFromLocalStorage(type) {
   return JSON.parse(localStorage.getItem(`${type}`));
 }
 
-export { setToLocalStorage, getFromLocalStorage };
+function deleteTaskFromLocalStorage(type, taskTitle) {
+  const tasks = getFromLocalStorage(`${type}`);
+
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].taskTitle === taskTitle) {
+      tasks.splice(i, 1);
+      setToLocalStorageAfterDeleting(type, tasks);
+    }
+  }
+}
+
+function setToLocalStorageAfterDeleting(type, tasks) {
+  localStorage.setItem(`${type}`, JSON.stringify(tasks));
+
+  // if no tasks in either 'toDo' or 'project-task' LS arrays delete the key from LS
+  if (tasks.length === 0 && type === 'toDo') {
+    localStorage.removeItem(`${type}`);
+    makeNewTaskDiv('tasks', 'task-container');
+  } else if (tasks.length === 0 && type === 'project-task') {
+    localStorage.removeItem(`${type}`);
+  }
+}
+
+export { setToLocalStorage, getFromLocalStorage, deleteTaskFromLocalStorage };
