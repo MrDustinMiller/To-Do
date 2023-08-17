@@ -4,25 +4,33 @@ import { dialogEvents } from '../events';
 import { getFromLocalStorage } from '../localStorage';
 import addNewProjectToSidebar from '../ui/addNewProjectToSidebar';
 import { buildToDoUi } from '../ui/addTaskToPage';
-import { wipeDomContent } from '../ui/dom';
 import { addTaskContainer } from '../ui/addTaskToPage';
 
 //runs when a individual project is clicked
 export default function loadProjectPage(e) {
   createHeader();
-  const allProjectTasks = getFromLocalStorage('project-task');
+  const projectTasks = getFromLocalStorage('project-task');
 
-  if (!allProjectTasks) {
+  if (!projectTasks) {
     makeNewTaskDivForProjects('tasks', 'project-container');
     dialogEvents();
   } else {
-    addTaskContainer('project-container');
-    const individiualProjectTask = allProjectTasks.filter(
+    // refactor to seperate function
+    const individiualProjectTask = projectTasks.filter(
       (task) => task.projectPage === e.target.textContent
     );
-    individiualProjectTask.forEach((task) => {
-      buildToDoUi(task);
-    });
+
+    // if no task in project (just made) show no task message
+    if (individiualProjectTask.length === 0) {
+      makeNewTaskDivForProjects('tasks', 'project-container');
+      dialogEvents();
+    } else {
+      // build task on project page clicked
+      addTaskContainer('project-container');
+      individiualProjectTask.forEach((task) => {
+        buildToDoUi(task);
+      });
+    }
   }
 }
 
