@@ -9,6 +9,7 @@ export default function loadTodayPage() {
   const data = localStorage.getItem('notes') || localStorage.getItem('tasks');
 
   if (!data) {
+    // show no items saved in display if no data
     makeNewTaskDiv('items saved', 'task-container');
     dialogEvents();
   } else {
@@ -22,11 +23,15 @@ function addExistingDataToTodayPage(typeOne, typeTwo) {
   const notes = getFromLocalStorage('notes');
   const tasks = getFromLocalStorage('toDo');
 
-  notes.forEach((note) => {
-    addTaskToPage(typeOne, note);
-  });
+  if (notes) {
+    notes.forEach((note) => {
+      addTaskToPage(typeOne, note);
+    });
+  }
 
-  tasks.forEach((task) => {
-    addTaskToPage(typeTwo, task);
-  });
+  if (tasks) {
+    tasks.forEach((task) => {
+      addTaskToPage(typeTwo, task);
+    });
+  }
 }
