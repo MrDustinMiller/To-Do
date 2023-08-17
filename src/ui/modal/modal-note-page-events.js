@@ -12,6 +12,8 @@ export default function modalTaskNotesEvents() {
     const task = captureModalNotePageData();
     addToDo('notes', task);
     removeModal();
-    main.removeChild(noTaskContainer);
+    if (noTaskContainer) {
+      main.removeChild(noTaskContainer);
+    }
   });
 }
