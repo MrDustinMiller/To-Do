@@ -1,8 +1,8 @@
+import deleteTask from '../tasks/deleteTasks';
+
 export default function addTaskToPage(type, task, containerName) {
   // refactor all this later
-  console.log(type);
   if (type === 'toDo') {
-    console.log('hmm');
     // type would equal 'toDo'
     addToDoToPage(task);
   } else if (type === 'project-task') {
@@ -20,6 +20,7 @@ function buildToDoUi(task) {
     document.querySelector('.project-container');
 
   const toDoDiv = document.createElement('div');
+  toDoDiv.classList.add(`${task.taskTitle}`);
   toDoDiv.classList.add('to-do-div');
   toDoContainer.appendChild(toDoDiv);
 
@@ -50,6 +51,8 @@ function buildToDoUi(task) {
   deleteTaskBtn.classList.add('to-do-delete-btn');
   deleteTaskBtn.setAttribute('class', 'fa-solid fa-trash');
   toDoDivRight.appendChild(deleteTaskBtn);
+  // add event handler to each trash can icon made
+  deleteTask(deleteTaskBtn);
 
   const toDoPriorityLevel = document.createElement('p');
   toDoPriorityLevel.classList.add('to-do-priority-level');
@@ -62,7 +65,6 @@ function addToDoToPage(task, containerName) {
     addTaskContainer('project-container');
     buildToDoUi(task);
   } else {
-    console.log('running?');
     addTaskContainer('to-do-container');
     buildToDoUi(task);
   }
