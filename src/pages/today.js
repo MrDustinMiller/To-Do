@@ -10,7 +10,7 @@ export default function loadTodayPage() {
 
   if (!data) {
     // show no items saved in display if no data
-    makeNewTaskDiv('items saved', 'task-container');
+    makeNewTaskDiv('items saved', 'to-do-container');
     dialogEvents();
   } else {
     addExistingDataToTodayPage('notes', 'toDo');
