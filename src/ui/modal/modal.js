@@ -4,7 +4,6 @@ import loadModalTaskPage from './modal-task-page';
 export default function createNewDialogModal() {
   if (document.querySelector('.new-modal')) return;
   const container =
-    document.querySelector('.task-container') ||
     document.querySelector('.to-do-container') ||
     document.querySelector('.notes-container') ||
     document.querySelector('.project-container');
