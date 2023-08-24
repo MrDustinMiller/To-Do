@@ -3,6 +3,7 @@ import addToDo from '../../tasks/addTasks';
 import addNewProjectToSidebar from '../addNewProjectToSidebar';
 import removeModal from './removeModal';
 import addPageEventListeners from '../../events';
+import { checkForNoTaskMessage } from '../dom';
 
 export default function modalTaskProjectEvents() {
   const modalAddButton = document.querySelector('.modal-add-btn');
@@ -10,6 +11,7 @@ export default function modalTaskProjectEvents() {
   modalAddButton.addEventListener('click', () => {
     // capture todo object in task variable
     const task = captureModalProjectPageData();
+    checkForNoTaskMessage();
     addToDo('project', task);
 
     // destructure and rename to project title so we can add to sidebar through function call
