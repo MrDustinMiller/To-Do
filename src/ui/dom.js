@@ -17,15 +17,19 @@ function wipeModalContent(content) {
   }
 }
 
+// refactor below
 function removeTaskFromDom(task, taskTitle) {
   const toDoContainer =
     document.querySelector('.to-do-container') ||
-    document.querySelector('.project-container');
+    document.querySelector('.project-container') ||
+    document.querySelector('.notes-container');
 
   if (toDoContainer.className === 'project-container') {
     deleteTaskFromLocalStorage('project-task', taskTitle);
-  } else {
+  } else if (toDoContainer.className === 'to-do-container') {
     deleteTaskFromLocalStorage('toDo', taskTitle);
+  } else {
+    deleteTaskFromLocalStorage('notes', taskTitle);
   }
 
   toDoContainer.removeChild(task);
@@ -38,4 +42,22 @@ function removeTaskFromDom(task, taskTitle) {
   }
 }
 
-export { wipeDomContent, wipeModalContent, removeTaskFromDom };
+function checkForNoTaskMessage() {
+  const noTaskText = document.querySelector('.no-task-text');
+  const newContentBtn = document.querySelector('.main-new');
+  const container =
+    document.querySelector('.to-do-container') ||
+    document.querySelector('.notes-container') ||
+    document.querySelector('.project-container');
+
+  if (container.contains(noTaskText)) {
+    container.removeChild(noTaskText);
+    container.removeChild(newContentBtn);
+  }
+}
+export {
+  wipeDomContent,
+  wipeModalContent,
+  removeTaskFromDom,
+  checkForNoTaskMessage,
+};
