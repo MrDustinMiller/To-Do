@@ -3,8 +3,6 @@ import makeNewTaskDiv from '../ui/noTasksMessage';
 import { dialogEvents } from '../events';
 import { getFromLocalStorage } from '../localStorage';
 import addTaskToPage from '../ui/addTaskToPage';
-import { deleteTaskFromLocalStorage } from '../localStorage';
-import { removeTaskFromDom } from '../ui/dom';
 
 // run when link is clicked
 export default function loadNotesPage() {
@@ -19,13 +17,6 @@ export default function loadNotesPage() {
     addExistingNotesToPage('notes');
     dialogEvents();
   }
-
-  // const deleteNoteBtn = document.querySelector('.note-close-btn');
-  // deleteNoteBtn.addEventListener('click', (e) => {
-  //   // gets us our note title
-  //   const noteTitle = e.target.parentElement.textContent;
-  //   removeTaskFromDom(,noteTitle)
-  // });
 }
 
 function addExistingNotesToPage(type) {
