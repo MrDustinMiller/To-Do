@@ -2,14 +2,11 @@ import { captureModalTaskPageData } from '../../tasks/captureTaskData';
 import addToDo from '../../tasks/addTasks';
 import removeModal from './removeModal';
 import { wipeModalContent } from '../dom';
+import { checkForNoTaskMessage } from '../dom';
 
 export default function modalTaskPageEvents() {
   const modalAddButton = document.querySelector('.modal-add-btn');
   const priorityButtons = document.querySelectorAll('.modal-btn');
-  const main = document.querySelector('.main-right');
-  const noTaskContainer =
-    document.querySelector('.task-container') ||
-    document.querySelector('to-do-container');
   const pageHeader = document.querySelector('.page-header');
   const projectContainer = document.querySelector('.project-container');
 
@@ -22,11 +19,10 @@ export default function modalTaskPageEvents() {
       wipeModalContent(projectContainer);
       addToDo('project-task', task, pageHeader.textContent);
     } else {
-      // capture todo object in task variable
       const task = captureModalTaskPageData();
+      checkForNoTaskMessage();
       addToDo('toDo', task);
       removeModal();
-      main.removeChild(noTaskContainer);
     }
   });
 
