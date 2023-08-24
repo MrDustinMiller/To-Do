@@ -52,7 +52,7 @@ function buildToDoUi(task) {
   deleteTaskBtn.setAttribute('class', 'fa-solid fa-trash');
   toDoDivRight.appendChild(deleteTaskBtn);
   // add event handler to each trash can icon made
-  deleteTask(deleteTaskBtn);
+  deleteTask('toDo', deleteTaskBtn);
 
   const toDoPriorityLevel = document.createElement('p');
   toDoPriorityLevel.classList.add('to-do-priority-level');
@@ -100,6 +100,8 @@ function addNotesToPage(task) {
   deleteNoteBtn.setAttribute('class', 'fa-solid fa-x');
   deleteNoteBtn.classList.add('note-close-btn');
   noteHeaderDiv.appendChild(deleteNoteBtn);
+  // add event handler to each trash can icon made
+  deleteTask('notes', deleteNoteBtn);
 
   const noteTextContent = document.createElement('p');
   noteTextContent.classList.add('note-text-content');
