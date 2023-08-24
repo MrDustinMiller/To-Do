@@ -152,10 +152,11 @@ a {
 
 .main-right {
   width:100%;
-  background-color: var(--main-background-color)
+  background-color: var(--main-background-color);
+  overflow:auto;
 }
 
-.task-container, .project-container {
+.project-container, .to-do-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -163,6 +164,16 @@ a {
   justify-content: center;
   gap: 5rem;
   font-size: 2rem;
+  color: var(--font-color)
+}
+
+.notes-container {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
   color: var(--font-color)
 }
 
@@ -175,19 +186,6 @@ a {
   gap: 0.5rem;
   padding: 0.75rem;
 }
-
-/* table {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-} */
-
-/* td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-} */
 
 .modal-main-div {
   display: flex;
@@ -373,8 +371,12 @@ textarea {
   gap: 1rem;
 }
 
-.notes-container {
+.no-task-text-div {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .note-div {
@@ -388,6 +390,7 @@ textarea {
   min-height: max-content;
   display: flex;
   flex-direction: column;
+  word-break: break-all;
 }
 
 .note-header{
@@ -415,3 +418,4 @@ textarea {
   margin-left: 2.5em;
   overflow: clip;
 }
+
