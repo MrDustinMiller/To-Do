@@ -11,7 +11,7 @@ function setToLocalStorage(type, task, pageHeaderText) {
       const dataArray = [task];
       localStorage.setItem(`${type}`, JSON.stringify(dataArray));
     } else {
-      // add project page title to task
+      // add project page title property to task
       task.projectPage = pageHeaderText;
       // populate array with our task object and individual project page title
       const dataArray = [task];
@@ -48,13 +48,22 @@ function deleteTaskFromLocalStorage(type, taskTitle) {
 function setToLocalStorageAfterDeleting(type, tasks) {
   localStorage.setItem(`${type}`, JSON.stringify(tasks));
 
-  // if no tasks in either 'toDo' or 'project-task' LS arrays delete the key from LS
+  // if no tasks in either 'toDo' or 'notes' LS arrays delete the key from LS
   if (tasks.length === 0 && type === 'toDo') {
     localStorage.removeItem(`${type}`);
-    makeNewTaskDiv('tasks', 'task-container');
-  } else if (tasks.length === 0 && type === 'project-task') {
+    makeNewTaskDiv('tasks', 'to-do-container');
+  } else if (tasks.length === 0 && type === 'notes') {
+    localStorage.removeItem(`${type}`);
+    makeNewTaskDiv('notes', 'notes-container');
+  }
+
+  if (tasks.length === 0 && type === 'project-task') {
+    localStorage.removeItem(`${type}`);
+  } else if (tasks.length === 0 && type === 'project') {
     localStorage.removeItem(`${type}`);
   }
+
+  return;
 }
 
 export { setToLocalStorage, getFromLocalStorage, deleteTaskFromLocalStorage };
