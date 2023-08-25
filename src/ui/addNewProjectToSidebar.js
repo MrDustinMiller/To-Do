@@ -19,3 +19,20 @@ export default function addNewProjectToSidebar(projectTitle) {
     newProjectLink.setAttribute('title', `${projectTitle}`);
   }
 }
+
+// runs only when user is adding a new project to sidebar
+function checkIfProjectNameAlreadyExists(projectTitle) {
+  const sidebarProjects = document.querySelectorAll('.project-child');
+  let projectExists = false;
+
+  sidebarProjects.forEach((project) => {
+    if (project.textContent === projectTitle) {
+      alert('You already have a project with that title!');
+      projectExists = true;
+    }
+  });
+
+  return projectExists;
+}
+
+export { checkIfProjectNameAlreadyExists };
