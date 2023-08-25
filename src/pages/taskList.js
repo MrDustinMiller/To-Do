@@ -4,7 +4,7 @@ import { dialogEvents } from '../events';
 import addTaskToPage from '../ui/addTaskToPage';
 import { getFromLocalStorage } from '../localStorage';
 
-// function is ran on page load
+// function is ran on page load and on link click
 export default function loadTaskList() {
   createHeader();
   const toDo = getFromLocalStorage('toDo');
