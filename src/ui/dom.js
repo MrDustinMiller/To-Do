@@ -1,5 +1,6 @@
 import { deleteTaskFromLocalStorage } from '../localStorage';
 import deleteProjectFromSidebar from '../deleteProjectFromSidebar';
+import { addTaskContainer } from './addTaskToPage';
 
 function wipeDomContent() {
   const content = document.querySelector('.main-right');
@@ -40,6 +41,7 @@ function removeTaskFromDom(task, taskTitle) {
     const currentPage = document.querySelector('.header-content').textContent;
     deleteProjectFromSidebar(currentPage);
     wipeDomContent();
+    addTaskContainer('to-do-container');
   }
 }
 
@@ -56,6 +58,7 @@ function checkForNoTaskMessage() {
     container.removeChild(newContentBtn);
   }
 }
+
 export {
   wipeDomContent,
   wipeModalContent,

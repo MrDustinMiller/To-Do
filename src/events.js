@@ -10,6 +10,7 @@ import {
 import createNewDialogModal from './ui/modal/modal';
 import deleteProjectFromSidebar from './deleteProjectFromSidebar';
 import { deleteAllProjectTasksFromLocalStorage } from './localStorage';
+import { addTaskContainer } from './ui/addTaskToPage';
 
 export default function addPageEventListeners() {
   // events for sidebarlink + individual project pages
@@ -73,6 +74,7 @@ function projectTrashCanEvents() {
       deleteProjectFromSidebar(projectName);
       deleteAllProjectTasksFromLocalStorage('project-task', projectName);
       wipeDomContent();
+      addTaskContainer('to-do-container');
     });
   });
 }

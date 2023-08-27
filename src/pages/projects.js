@@ -13,7 +13,7 @@ export default function loadProjectPage(e) {
   const projectTasks = getFromLocalStorage('project-task');
 
   if (!projectTasks) {
-    makeNewTaskDivForProjects('tasks', 'project-container');
+    makeNewTaskDivForProjects('tasks', 'to-do-container');
     dialogEvents();
   } else {
     // refactor to seperate function
