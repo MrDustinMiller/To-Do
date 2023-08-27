@@ -50,6 +50,7 @@ function buildToDoUi(task) {
   const deleteTaskBtn = document.createElement('i');
   deleteTaskBtn.classList.add('to-do-delete-btn');
   deleteTaskBtn.setAttribute('class', 'fa-solid fa-trash');
+  deleteTaskBtn.setAttribute('title', 'Delete Task');
   toDoDivRight.appendChild(deleteTaskBtn);
   // add event handler to each trash can icon made
   deleteTask('toDo', deleteTaskBtn);
