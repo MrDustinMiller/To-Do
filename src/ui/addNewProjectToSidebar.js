@@ -1,3 +1,4 @@
+// refactor below
 export default function addNewProjectToSidebar(projectTitle) {
   const projectSidebarLink = document.querySelector('.sidebar-project-link');
 
