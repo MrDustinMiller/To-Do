@@ -13,7 +13,7 @@ function captureModalProjectPageData() {
 }
 
 function captureModalNotePageData() {
-  const taskTitle = captureModalTitleTextData('.modal-notes-text-area');
+  const taskTitle = captureModalTitleTextData('.modal-notes-title-area');
   const taskDetails = captureModalDetailsTextData('.modal-notes-details-area');
   const taskDate = captureModalDateData();
   return { taskTitle, taskDetails, taskDate };
@@ -23,13 +23,13 @@ function captureModalNotePageData() {
 // only need one funciton here below, will refactor later
 function captureModalTitleTextData(elementClassName) {
   const titleTextArea = document.querySelector(`${elementClassName}`);
-  const textData = titleTextArea.value;
+  const textData = titleTextArea.value.trim();
   return textData;
 }
 
 function captureModalDetailsTextData(elementClassName) {
   const detailsTextArea = document.querySelector(`${elementClassName}`);
-  const textData = detailsTextArea.value;
+  const textData = detailsTextArea.value.trim();
   return textData;
 }
 
@@ -50,6 +50,12 @@ function captureModalPriorityLevel() {
 
   return priorityClicked.textContent;
 }
+
+// function checkIfTaskTitleNeedsTitleAttribute(title) {
+//   const titleArray = title.split('');
+//   if (titleArray.element > 15) {
+//   }
+// }
 
 export {
   captureModalTaskPageData,
