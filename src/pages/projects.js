@@ -1,6 +1,6 @@
 import createHeader from '../ui/header';
 import makeNewTaskDivForProjects from '../ui/noTasksMessage';
-import { dialogEvents } from '../events';
+import { dialogEvents, projectTrashCanEvents } from '../events';
 import { getFromLocalStorage } from '../localStorage';
 import addNewProjectToSidebar from '../ui/addNewProjectToSidebar';
 import { buildToDoUi } from '../ui/addTaskToPage';
@@ -8,7 +8,8 @@ import { addTaskContainer } from '../ui/addTaskToPage';
 
 //runs when a individual project is clicked
 export default function loadProjectPage(e) {
-  createHeader();
+  createHeader('project');
+  projectTrashCanEvents();
   const projectTasks = getFromLocalStorage('project-task');
 
   if (!projectTasks) {
