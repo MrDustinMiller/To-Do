@@ -1,5 +1,4 @@
 import { deleteTaskFromLocalStorage } from './localStorage';
-// import { wipeDomContent } from './ui/dom';
 
 export default function deleteProjectFromSidebar(nameOfProject) {
   const allSidebarLinkItems = document.querySelectorAll('.link-item');
@@ -14,7 +13,6 @@ export default function deleteProjectFromSidebar(nameOfProject) {
     if (link.classList[0] === nameOfProject) {
       sidebar.removeChild(link);
       deleteTaskFromLocalStorage('project', `${nameOfProject}`);
-      // wipeDomContent();
     }
   });
 }
