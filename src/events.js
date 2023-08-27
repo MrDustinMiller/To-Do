@@ -78,4 +78,30 @@ function projectTrashCanEvents() {
     });
   });
 }
-export { dialogEvents, projectTrashCanEvents };
+
+function checkBoxTaskEvents() {
+  const toDoCheckBox = document.querySelectorAll('.to-do-checkbox');
+  toDoCheckBox.forEach((checkbox) => {
+    checkbox.addEventListener('click', (e) => {
+      if (e.target.checked) {
+        const sibling = e.target.nextSibling;
+        sibling.style.textDecoration = 'line-through';
+
+        const children = e.target.parentNode.nextSibling.childNodes;
+        children.forEach((child) => {
+          child.style.textDecoration = 'line-through';
+        });
+      } else {
+        const sibling = e.target.nextSibling;
+        sibling.style.textDecoration = 'none';
+
+        const children = e.target.parentNode.nextSibling.childNodes;
+        children.forEach((child) => {
+          child.style.textDecoration = 'none';
+        });
+      }
+    });
+  });
+}
+
+export { dialogEvents, projectTrashCanEvents, checkBoxTaskEvents };

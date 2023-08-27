@@ -1,4 +1,5 @@
 import deleteTask from '../tasks/deleteTasks';
+import { checkBoxTaskEvents } from '../events';
 
 export default function addTaskToPage(type, task, containerName) {
   // refactor all this later
@@ -32,6 +33,8 @@ function buildToDoUi(task) {
   checkBox.setAttribute('type', 'checkbox');
   checkBox.classList.add('to-do-checkbox');
   toDoDivLeft.appendChild(checkBox);
+  // add event handlers to each checkbox
+  checkBoxTaskEvents();
 
   const toDo = document.createElement('p');
   toDo.classList.add('to-do');
