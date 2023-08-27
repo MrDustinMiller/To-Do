@@ -45,9 +45,22 @@ function deleteTaskFromLocalStorage(type, taskTitle) {
   }
 }
 
+function deleteAllProjectTasksFromLocalStorage(type, projectName) {
+  const tasks = getFromLocalStorage(`${type}`);
+  if (!tasks) return;
+
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].projectPage === projectName) {
+      tasks.splice(i, 1);
+      setToLocalStorageAfterDeleting(type, tasks);
+    }
+  }
+}
+
 function setToLocalStorageAfterDeleting(type, tasks) {
   localStorage.setItem(`${type}`, JSON.stringify(tasks));
 
+  // refactor below
   // if no tasks in either 'toDo' or 'notes' LS arrays delete the key from LS
   if (tasks.length === 0 && type === 'toDo') {
     localStorage.removeItem(`${type}`);
@@ -57,6 +70,7 @@ function setToLocalStorageAfterDeleting(type, tasks) {
     makeNewTaskDiv('notes', 'notes-container');
   }
 
+  // if no tasks in either 'project-task' or 'project' LS arrays delete the key from LS
   if (tasks.length === 0 && type === 'project-task') {
     localStorage.removeItem(`${type}`);
   } else if (tasks.length === 0 && type === 'project') {
@@ -66,4 +80,9 @@ function setToLocalStorageAfterDeleting(type, tasks) {
   return;
 }
 
-export { setToLocalStorage, getFromLocalStorage, deleteTaskFromLocalStorage };
+export {
+  setToLocalStorage,
+  getFromLocalStorage,
+  deleteTaskFromLocalStorage,
+  deleteAllProjectTasksFromLocalStorage,
+};
