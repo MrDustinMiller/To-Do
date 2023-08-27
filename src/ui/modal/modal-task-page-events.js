@@ -27,6 +27,8 @@ export default function modalTaskPageEvents() {
 
   priorityButtons.forEach((button) => {
     button.addEventListener('click', () => {
+      // func to check if any buttons have a color of white
+      // if so change it to normal so next btn clicked will be the selected one taken as input
       const btnBgColor = getComputedStyle(button);
       button.style.backgroundColor = `${btnBgColor.backgroundColor}`;
       button.style.color = 'White';

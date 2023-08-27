@@ -43,6 +43,7 @@ function captureModalPriorityLevel() {
   const priorityButtons = document.querySelectorAll('.modal-btn');
   const buttonArray = Array.from(priorityButtons);
 
+  // btn with a color of white is currently selected button
   const priorityClicked = buttonArray.find(
     (element) => element.style.color === 'white'
   );
