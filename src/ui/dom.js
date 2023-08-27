@@ -37,7 +37,10 @@ function removeTaskFromDom(task, taskTitle) {
 
   // if project page has no children then we'll grab the page header and delete
   // it from the sidebar
-  if (toDoContainer.children.length === 0) {
+  if (
+    toDoContainer.children.length === 0 &&
+    toDoContainer.textContent === 'project-container'
+  ) {
     const currentPage = document.querySelector('.header-content').textContent;
     deleteProjectFromSidebar(currentPage);
     wipeDomContent();
