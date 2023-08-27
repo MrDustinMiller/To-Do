@@ -8,6 +8,8 @@ import {
   checkForActiveAttribute,
 } from './ui/activeAttribute';
 import createNewDialogModal from './ui/modal/modal';
+import deleteProjectFromSidebar from './deleteProjectFromSidebar';
+import { deleteAllProjectTasksFromLocalStorage } from './localStorage';
 
 export default function addPageEventListeners() {
   // events for sidebarlink + individual project pages
@@ -47,7 +49,7 @@ function checkWhichSidebarLinkIsClicked(e) {
   }
 }
 
-export function dialogEvents() {
+function dialogEvents() {
   const newContentButtons = document.querySelectorAll('.new-content');
 
   newContentButtons.forEach((button) => {
@@ -56,3 +58,22 @@ export function dialogEvents() {
     });
   });
 }
+
+function projectTrashCanEvents() {
+  const projectTrashCan = document.querySelectorAll('.fa-trash-can');
+
+  projectTrashCan.forEach((trashCan) => {
+    trashCan.addEventListener('click', (e) => {
+      const targetParent = e.target.parentElement;
+      const parentSiblingElementTextContent =
+        targetParent.previousSibling.textContent;
+      const projectName = parentSiblingElementTextContent;
+
+      // will remove project from sidebar AND delete project from LS
+      deleteProjectFromSidebar(projectName);
+      deleteAllProjectTasksFromLocalStorage('project-task', projectName);
+      wipeDomContent();
+    });
+  });
+}
+export { dialogEvents, projectTrashCanEvents };
