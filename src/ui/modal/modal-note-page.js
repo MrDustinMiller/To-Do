@@ -11,7 +11,7 @@ export default function loadModalNotesPage() {
   const modalMainContent = document.querySelector('.modal-new-content-div');
   wipeModalContent(modalMainContent);
   buildModalTextArea(
-    'modal-notes-text-area',
+    'modal-notes-title-area',
     'Title: Grocery List.',
     modalMainContent
   );
