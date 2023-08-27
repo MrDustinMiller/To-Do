@@ -156,7 +156,7 @@ a {
   overflow:auto;
 }
 
-.project-container, .to-do-container {
+ .to-do-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -165,7 +165,7 @@ a {
   gap: 5rem;
   font-size: 2rem;
   color: var(--font-color)
-}
+} 
 
 .notes-container {
   height: 100%;
@@ -220,7 +220,7 @@ dialog {
 }
 
 [class|='modal-link active']::before {
-  content: '//';
+  content: '🠚';
   font-size: 1.25rem;
   font-weight: bold;
   color: rgb(0, 0, 0);
@@ -362,6 +362,8 @@ textarea {
   border: 1px solid black;
   border-radius: 5px;
   margin: 3rem;
+  min-width: 80dvw;
+  min-height: fit-content;
 }
 
 .to-do-div-left, .to-do-div-right {
