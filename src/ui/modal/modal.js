@@ -33,6 +33,7 @@ function createModalHeader(newModal) {
 
   const closeBtn = document.createElement('i');
   closeBtn.setAttribute('class', 'fa-solid fa-x');
+  closeBtn.setAttribute('title', 'Close');
   closeBtn.classList.add('modal-close-btn');
   header.appendChild(closeBtn);
 }
