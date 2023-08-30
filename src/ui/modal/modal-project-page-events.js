@@ -17,8 +17,11 @@ export default function modalTaskProjectEvents() {
 
     // destructure and rename to project title so we can add to sidebar through function call
     const { taskTitle: projectTitle } = task;
-    const check = checkIfProjectNameAlreadyExists(projectTitle);
+    if (projectTitle === 'N/A') {
+      return;
+    }
 
+    const check = checkIfProjectNameAlreadyExists(projectTitle);
     // if we have a duplicate project name return, else add project to sidebar
     if (check === true) {
       return;
