@@ -2,6 +2,10 @@ import { captureModalTaskPageData } from '../../tasks/captureTaskData';
 import addToDo from '../../tasks/addTasks';
 import removeModal from './removeModal';
 import { checkForNoTaskMessage } from '../dom';
+import {
+  addActiveAttribute,
+  checkForActiveAttribute,
+} from '../activeAttribute';
 
 export default function modalTaskPageEvents() {
   const modalAddButton = document.querySelector('.modal-add-btn');
@@ -31,12 +35,10 @@ export default function modalTaskPageEvents() {
   });
 
   priorityButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      // func to check if any buttons have a color of white
-      // if so change it to normal so next btn clicked will be the selected one taken as input
-      const btnBgColor = getComputedStyle(button);
-      button.style.backgroundColor = `${btnBgColor.backgroundColor}`;
-      button.style.color = 'White';
+    button.addEventListener('click', (e) => {
+      // add active to classlist of cliked button so we can style it with css
+      checkForActiveAttribute(priorityButtons);
+      addActiveAttribute(e);
     });
   });
 }
