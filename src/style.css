@@ -158,12 +158,12 @@ a {
 
  .to-do-container {
   height: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items:center;
-  justify-content: center;
-  gap: 5rem;
-  font-size: 2rem;
+  justify-content: center; */
+  /* gap: 5rem;
+  font-size: 2rem; */
   color: var(--font-color)
 } 
 
@@ -451,3 +451,12 @@ textarea {
   color:white;
   background-color: var(--priority-high-color);
 }
+
+
+.no-task-text, .main-new {
+  margin: 4rem;
+  font-size: 2rem;
+  display: grid;
+  place-items: center;
+}
+
