@@ -42,6 +42,17 @@ function createTopSidebarContent(sidebar) {
   taskListLinkText.textContent = 'Task List';
   taskListLinkItem.appendChild(taskListLinkText);
 
+  const notesLinkItem = document.createElement('li');
+  notesLinkItem.classList.add('link-item');
+  sidebarLinks.appendChild(notesLinkItem);
+  const notesLink = document.createElement('i');
+  notesLink.setAttribute('class', 'fa-solid fa-book');
+  notesLinkItem.appendChild(notesLink);
+  const notesLinkText = document.createElement('a');
+  notesLinkText.classList.add('notes');
+  notesLinkText.textContent = 'Notes';
+  notesLinkItem.appendChild(notesLinkText);
+
   createBottomSidebarContent(sidebar);
 }
 
@@ -76,17 +87,6 @@ function createBottomSidebarContent(sidebar) {
   addNewProjectLinkItem.appendChild(addNewprojectLinkText);
   // if any
   addExistingProjectsToSidebar();
-
-  const notesLinkItem = document.createElement('li');
-  notesLinkItem.classList.add('link-item');
-  sidebarLinks.appendChild(notesLinkItem);
-  const notesLink = document.createElement('i');
-  notesLink.setAttribute('class', 'fa-solid fa-book');
-  notesLinkItem.appendChild(notesLink);
-  const notesLinkText = document.createElement('a');
-  notesLinkText.classList.add('notes');
-  notesLinkText.textContent = 'Notes';
-  notesLinkItem.appendChild(notesLinkText);
 
   createSidebarFooter(sidebar);
 }
