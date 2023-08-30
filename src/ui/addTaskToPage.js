@@ -21,7 +21,7 @@ function buildToDoUi(task) {
     document.querySelector('.project-container');
 
   const toDoDiv = document.createElement('div');
-  toDoDiv.classList.add(`${task.taskTitle}`);
+  toDoDiv.setAttribute('class', `${task.taskTitle}`);
   toDoDiv.classList.add('to-do-div');
   toDoContainer.appendChild(toDoDiv);
 
