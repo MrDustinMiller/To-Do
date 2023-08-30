@@ -2,7 +2,7 @@ import createHeader from '../ui/header';
 import makeNewTaskDiv from '../ui/noTasksMessage';
 import { dialogEvents } from '../events';
 import { getFromLocalStorage } from '../localStorage';
-import addTaskToPage from '../ui/addTaskToPage';
+import { addNotesToPage, buildToDoUi } from '../ui/addTaskToPage';
 
 export default function loadTodayPage() {
   createHeader();
@@ -25,13 +25,13 @@ function addExistingDataToTodayPage(typeOne, typeTwo) {
 
   if (notes) {
     notes.forEach((note) => {
-      addTaskToPage(typeOne, note);
+      addNotesToPage(note);
     });
   }
 
   if (tasks) {
     tasks.forEach((task) => {
-      addTaskToPage(typeTwo, task);
+      buildToDoUi(task);
     });
   }
 }
