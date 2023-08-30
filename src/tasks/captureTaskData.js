@@ -44,8 +44,8 @@ function captureModalPriorityLevel() {
   const buttonArray = Array.from(priorityButtons);
 
   // btn with a color of white is currently selected button
-  const priorityClicked = buttonArray.find(
-    (element) => element.style.color === 'white'
+  const priorityClicked = buttonArray.find((element) =>
+    element.classList.contains('active')
   );
 
   // if no button is clicked just return text "LOW"
