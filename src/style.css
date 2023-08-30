@@ -436,3 +436,18 @@ textarea {
 .task-details {
   margin-top: 1em;
 }
+
+.priority-low-btn[class$='active'] {
+  color:white;
+  background-color: var(--priority-low-color);
+}
+
+.priority-med-btn[class$='active'] {
+  color:white;
+  background-color: var(--priority-med-color);
+}
+
+.priority-high-btn[class$='active'] {
+  color:white;
+  background-color: var(--priority-high-color);
+}
