@@ -62,9 +62,23 @@ function checkForNoTaskMessage() {
   }
 }
 
+function deleteContainer(container) {
+  const main = document.querySelector('.main-right');
+  const containerToDelete = document.querySelector(`${container}`);
+  main.removeChild(containerToDelete);
+}
+
+// function changeContainerName(elementName, newElementName) {
+//   console.log('hjere');
+//   const element = document.querySelector(`.${elementName}`);
+//   element.removeAttribute('class');
+//   element.setAttribute('class', newElementName);
+// }
+
 export {
   wipeDomContent,
   wipeModalContent,
   removeTaskFromDom,
   checkForNoTaskMessage,
+  deleteContainer,
 };

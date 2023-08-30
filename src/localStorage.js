@@ -1,3 +1,4 @@
+import { deleteContainer } from './ui/dom';
 import makeNewTaskDiv from './ui/noTasksMessage';
 
 function setToLocalStorage(type, task, pageHeaderText) {
@@ -67,7 +68,8 @@ function setToLocalStorageAfterDeleting(type, tasks) {
     makeNewTaskDiv('tasks', 'to-do-container');
   } else if (tasks.length === 0 && type === 'notes') {
     localStorage.removeItem(`${type}`);
-    makeNewTaskDiv('notes', 'notes-container');
+    makeNewTaskDiv('notes', 'to-do-container');
+    deleteContainer('.notes-container');
   }
 
   // if no tasks in either 'project-task' or 'project' LS arrays delete the key from LS
