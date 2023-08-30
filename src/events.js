@@ -7,10 +7,14 @@ import {
   addActiveAttribute,
   checkForActiveAttribute,
 } from './ui/activeAttribute';
-import createNewDialogModal from './ui/modal/modal';
+import createNewDialogModal, {
+  createModalTaskDetailsArea,
+} from './ui/modal/modal';
 import deleteProjectFromSidebar from './deleteProjectFromSidebar';
 import { deleteAllProjectTasksFromLocalStorage } from './localStorage';
 import { addTaskContainer } from './ui/addTaskToPage';
+import { createModalHeader } from './ui/modal/modal';
+import modalEvents from './ui/modal/modal-events';
 
 export default function addPageEventListeners() {
   // events for sidebarlink + individual project pages
@@ -56,6 +60,7 @@ function dialogEvents() {
   newContentButtons.forEach((button) => {
     button.addEventListener('click', () => {
       createNewDialogModal();
+      // closeModalIfClickOnScreen();
     });
   });
 }
@@ -104,4 +109,44 @@ function checkBoxTaskEvents() {
   });
 }
 
-export { dialogEvents, projectTrashCanEvents, checkBoxTaskEvents };
+function expandTaskDetails(element, details) {
+  element.addEventListener('click', () => {
+    const container =
+      document.querySelector('.to-do-container') ||
+      document.querySelector('.notes-container') ||
+      document.querySelector('.project-container');
+    const newModal = document.createElement('dialog');
+    newModal.classList.add('new-modal');
+    newModal.classList.add('task-details-modal');
+    container.appendChild(newModal);
+    createModalHeader(newModal, 'Task Details');
+    createModalTaskDetailsArea(newModal, details);
+    newModal.showModal();
+    modalEvents(newModal, container);
+  });
+}
+
+// function closeModalIfClickOnScreen() {
+//   const body = document.querySelector('.to-do-container');
+//   const modal = document.querySelector('.new-modal');
+
+//   for (const child of body.children) {
+//     console.log(child);
+//   }
+
+//   body.addEventListener('click', () => {
+//     const modal = document.querySelector('.new-modal');
+
+//     if (modal) {
+//       removeModal();
+//     }
+//   });
+// }
+
+export {
+  dialogEvents,
+  projectTrashCanEvents,
+  checkBoxTaskEvents,
+  expandTaskDetails,
+  // closeModalIfClickOnScreen,
+};
