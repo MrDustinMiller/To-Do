@@ -23,19 +23,19 @@ function captureModalNotePageData() {
 // only need one funciton here below, will refactor later
 function captureModalTitleTextData(elementClassName) {
   const titleTextArea = document.querySelector(`${elementClassName}`);
-  const textData = titleTextArea.value.trim();
+  const textData = titleTextArea.value.trim() || 'N/A';
   return textData;
 }
 
 function captureModalDetailsTextData(elementClassName) {
   const detailsTextArea = document.querySelector(`${elementClassName}`);
-  const textData = detailsTextArea.value.trim();
+  const textData = detailsTextArea.value.trim() || 'N/A';
   return textData;
 }
 
 function captureModalDateData() {
   const dateInput = document.querySelector('.modal-date-input');
-  const dateData = dateInput.value;
+  const dateData = dateInput.value || 'N/A';
   return dateData;
 }
 
@@ -48,14 +48,11 @@ function captureModalPriorityLevel() {
     (element) => element.style.color === 'white'
   );
 
-  return priorityClicked.textContent;
+  // if no button is clicked just return text "LOW"
+  if (priorityClicked === undefined) {
+    return 'LOW';
+  } else return priorityClicked.textContent;
 }
-
-// function checkIfTaskTitleNeedsTitleAttribute(title) {
-//   const titleArray = title.split('');
-//   if (titleArray.element > 15) {
-//   }
-// }
 
 export {
   captureModalTaskPageData,
