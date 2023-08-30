@@ -60,7 +60,6 @@ function dialogEvents() {
   newContentButtons.forEach((button) => {
     button.addEventListener('click', () => {
       createNewDialogModal();
-      // closeModalIfClickOnScreen();
     });
   });
 }
@@ -126,27 +125,9 @@ function expandTaskDetails(element, details) {
   });
 }
 
-// function closeModalIfClickOnScreen() {
-//   const body = document.querySelector('.to-do-container');
-//   const modal = document.querySelector('.new-modal');
-
-//   for (const child of body.children) {
-//     console.log(child);
-//   }
-
-//   body.addEventListener('click', () => {
-//     const modal = document.querySelector('.new-modal');
-
-//     if (modal) {
-//       removeModal();
-//     }
-//   });
-// }
-
 export {
   dialogEvents,
   projectTrashCanEvents,
   checkBoxTaskEvents,
   expandTaskDetails,
-  // closeModalIfClickOnScreen,
 };
