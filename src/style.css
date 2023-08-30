@@ -403,7 +403,8 @@ textarea {
 }
 
 .note-date {
-  align-self: flex-end
+  align-self: flex-end;
+  padding: 0.25rem
 }
 
 .note-text-content {
