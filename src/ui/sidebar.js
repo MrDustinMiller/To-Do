@@ -17,16 +17,16 @@ function createTopSidebarContent(sidebar) {
   sidebarLinks.classList.add('sidebar-links');
   topContainer.appendChild(sidebarLinks);
 
-  const todayLinkItem = document.createElement('li');
-  todayLinkItem.classList.add('link-item');
-  sidebarLinks.appendChild(todayLinkItem);
-  const todayLink = document.createElement('i');
-  todayLink.setAttribute('class', 'sidebar-link fa-solid fa-sun');
-  todayLinkItem.appendChild(todayLink);
-  const todayLinkText = document.createElement('a');
-  todayLinkText.classList.add('today');
-  todayLinkText.textContent = 'Today';
-  todayLinkItem.appendChild(todayLinkText);
+  // const todayLinkItem = document.createElement('li');
+  // todayLinkItem.classList.add('link-item');
+  // sidebarLinks.appendChild(todayLinkItem);
+  // const todayLink = document.createElement('i');
+  // todayLink.setAttribute('class', 'sidebar-link fa-solid fa-sun');
+  // todayLinkItem.appendChild(todayLink);
+  // const todayLinkText = document.createElement('a');
+  // todayLinkText.classList.add('today');
+  // todayLinkText.textContent = 'Today';
+  // todayLinkItem.appendChild(todayLinkText);
 
   const taskListLinkItem = document.createElement('li');
   taskListLinkItem.classList.add('link-item');

@@ -39,7 +39,7 @@ export default function addPageEventListeners() {
 function checkWhichSidebarLinkIsClicked(e) {
   switch (e.target.textContent) {
     case 'Today':
-      loadTodayPage();
+      // loadTodayPage();
       break;
     case 'Task List':
       loadTaskList();
