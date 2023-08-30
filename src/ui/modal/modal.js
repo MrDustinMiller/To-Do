@@ -25,10 +25,10 @@ export default function createNewDialogModal() {
   modalEvents(newModal, container);
 }
 
-function createModalHeader(newModal) {
+function createModalHeader(newModal, taskHeader) {
   const header = document.createElement('header');
   header.classList.add('modal-header');
-  header.textContent = 'Create a new...';
+  header.textContent = taskHeader || 'Create a new...';
   newModal.appendChild(header);
 
   const closeBtn = document.createElement('i');
@@ -78,3 +78,12 @@ function createModalContentDiv() {
   newEntryDiv.classList.add('modal-new-entry');
   newContentDiv.appendChild(newEntryDiv);
 }
+
+function createModalTaskDetailsArea(newModal, details) {
+  const taskDetailsDiv = document.createElement('div');
+  taskDetailsDiv.classList.add('task-details');
+  taskDetailsDiv.textContent = details;
+  newModal.appendChild(taskDetailsDiv);
+}
+
+export { createModalHeader, createModalMainDiv, createModalTaskDetailsArea };
