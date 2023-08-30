@@ -18,7 +18,8 @@ export default function addTaskToPage(type, task, containerName) {
 function buildToDoUi(task) {
   const toDoContainer =
     document.querySelector('.to-do-container') ||
-    document.querySelector('.project-container');
+    document.querySelector('.project-container') ||
+    document.querySelector('.notes-container');
 
   const toDoDiv = document.createElement('div');
   toDoDiv.setAttribute('class', `${task.taskTitle}`);
@@ -84,7 +85,11 @@ function addToDoToPage(task, containerName) {
 
 function addTaskContainer(className) {
   // if container already exists just return so we dont get duplicates
-  if (document.querySelector(`.${className}`)) return;
+  if (
+    document.querySelector(`.${className}`) ||
+    document.querySelector('.notes-container')
+  )
+    return;
 
   const main = document.querySelector('.main-right');
   const toDoContainer = document.createElement('div');
@@ -126,4 +131,4 @@ function addNotesToPage(task) {
   noteDiv.appendChild(noteDate);
 }
 
-export { addTaskContainer, buildToDoUi };
+export { addTaskContainer, buildToDoUi, addNotesToPage };
