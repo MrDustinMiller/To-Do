@@ -1,5 +1,5 @@
 import deleteTask from '../tasks/deleteTasks';
-import { checkBoxTaskEvents } from '../events';
+import { checkBoxTaskEvents, expandTaskDetails } from '../events';
 
 export default function addTaskToPage(type, task, containerName) {
   // refactor all this later
@@ -25,6 +25,7 @@ function buildToDoUi(task) {
   toDoDiv.classList.add('to-do-div');
   toDoContainer.appendChild(toDoDiv);
 
+  // left
   const toDoDivLeft = document.createElement('div');
   toDoDivLeft.classList.add('to-do-div-left');
   toDoDiv.appendChild(toDoDivLeft);
@@ -41,6 +42,13 @@ function buildToDoUi(task) {
   toDo.textContent = `${task.taskTitle}`;
   toDoDivLeft.appendChild(toDo);
 
+  const expandDetails = document.createElement('i');
+  expandDetails.setAttribute('class', 'fa-solid fa-ellipsis');
+  toDoDivLeft.appendChild(expandDetails);
+  // add event handlers to each ellipsis
+  expandTaskDetails(expandDetails, task.taskDetails);
+
+  // right
   const toDoDivRight = document.createElement('div');
   toDoDivRight.classList.add('to-do-div-right');
   toDoDiv.appendChild(toDoDivRight);
