@@ -142,7 +142,7 @@ a {
 }
 
 .sidebar-new:hover, .sidebar-settings:hover, .new-content:hover, .modal-link:hover, .fa-x:hover, 
-.modal-date-input:hover, .modal-btn:hover, .fa-trash, .fa-trash-can {
+.modal-date-input:hover, .modal-btn:hover, .fa-trash, .fa-trash-can, .fa-ellipsis {
   cursor: pointer;
 }
 
@@ -369,7 +369,6 @@ textarea {
 .to-do-div-left, .to-do-div-right {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 0.5rem;
   gap: 1rem;
 }
@@ -426,4 +425,14 @@ textarea {
 .project-trash-div, .header-content {
   display: flex;
   gap: 0.5rem;
+}
+
+.task-details-modal{ 
+  min-height: 20dvh;
+  min-width: 20dvw;
+  text-align: center;
+}
+
+.task-details {
+  margin-top: 1em;
 }
